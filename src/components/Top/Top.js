@@ -18,6 +18,11 @@ const Topbar = styled.div `
     justify-content: center;
     background-color: #C3CFD9;
 
+    position:fixed;
+    top:0px;
+    left:0px;
+    right:0px;
+
     h1{
         font-family: 'Roboto';
         font-style: normal;
