@@ -25,7 +25,7 @@ export default function Seat ({id, number, available, selected, onSelect}){
         
         <Position onClick={clickOnSeat}
                   available={available}
-                  selected={selected}  >
+                  selected={selected} >
             {number}
         </Position>
     )

@@ -3,12 +3,14 @@ import axios from "axios"
 import { useEffect, useState } from "react"
 import { useParams } from "react-router-dom";
 import Seat from "./Seat";
+import Footer from "../Footer/Footer";
 
 export default function Seats (){
 
     const {idSessao} = useParams();
     const [screenings, setScreenings] = useState([]);
-    const [seats, setSeats] = useState([])
+    const [screeningsDay, setScreeningsDay] = useState([]);
+    const [seats, setSeats] = useState([]);
     const [selectedSeats, setSelectedSeats] = useState([]);
 
     useEffect(()=>{
@@ -18,26 +20,16 @@ export default function Seats (){
         requisition.then(response => {
             const {data} = response
 
-            setScreenings(data);
+            setScreenings(data.movie);
+            setScreeningsDay(data.day)
             setSeats(data.seats)
 
             console.log(data)
         });
     },[]);
 
-    function selected (id){
-        console.log (selectedSeats.id)
-        for(let i=0;i<selectedSeats.length;i++){
-            if (selectedSeats.id === id){
-                return true
-            } else {
-                return false
-            }
-        }
-    }
-
     function toggle (id, number){
-        const nowSelect = selected(id)
+        const nowSelect = selectedSeats.some(seat => seat.id === id)
         if(!nowSelect){
             setSelectedSeats([...selectedSeats, {id, number}]);
         } else {
@@ -56,7 +48,8 @@ export default function Seats (){
             <div className="menuSeats">
                 {seats.map(seat => {
                     const {id, name, isAvailable} = seat;
-                    {selected(id)}
+                    const selected = selectedSeats.some(seat => seat.id === id)
+                    
                     return(
                         <Seat
                             key={id}
@@ -69,6 +62,7 @@ export default function Seats (){
                 })}
             </div>
         </div>
+        <Footer image= {screenings.posterURL} title={screenings.title} date={screeningsDay.date} weekday={screeningsDay.weekday}/>
         </>
     )
 }

@@ -1,11 +1,25 @@
 import styled from "styled-components"
 
-export default function Footer ({image, title}){
+export default function Footer ({image, title, date, weekday}){
 
+    function verification (date, weekday){
+        if (date === undefined){
+            return (
+                <></>
+            )
+        } else{
+            return (
+                `${weekday} - ${date}`
+            )
+        }
+    }
     return(
         <Sidebar>
                 <img src={image} alt={title} />
-                <h2>{title}</h2>
+                <div>
+                    <h2>{title}</h2>
+                    <h2>{verification(date, weekday)}</h2>
+                </div>
         </Sidebar>
     )
 }
