@@ -12,7 +12,6 @@ export default function Sessions (){
 
     useEffect(()=>{
 
-        
         const requisition = axios.get(`https://mock-api.driven.com.br/api/v7/cineflex/movies/${idFilme}/showtimes`);
 
         requisition.then(response => {
