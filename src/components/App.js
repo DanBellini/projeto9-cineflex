@@ -4,8 +4,10 @@ import Main from "./Main/Main";
 import Sessions from "./Sessions/Sessions";
 import Seats from "./Seats/Seats";
 import Sucess from "./Sucess/Sucess";
+import { useState } from "react";
 
 export default function App (){
+    const [loadOrder, setLoadOrder] = useState(null)
 
     return(
         <BrowserRouter>
@@ -13,8 +15,8 @@ export default function App (){
             <Routes>
                 <Route path="/" element={<Main/>}/>
                 <Route path="/sessoes/:idFilme" element={<Sessions/>}/>
-                <Route path="/assentos/:idSessao" element={<Seats/>}/>
-                <Route path="/sucess" element={<Sucess/>}/>
+                <Route path="/assentos/:idSessao" element={<Seats finish={(loadOrder) => setLoadOrder(loadOrder)}/>}/>
+                <Route path="/sucess" element={<Sucess loadOrder={loadOrder}/>}/>
             </Routes>
         </BrowserRouter>
     )
