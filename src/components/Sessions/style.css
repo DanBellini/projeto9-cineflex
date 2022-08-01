@@ -1,0 +1,84 @@
+.mainSession {
+    width: 100%;
+    height: 100%;
+
+    margin-top: 67px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.titleSession{
+    width: 100%;
+    height: 110px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    position: fixed;
+    background-color: #f5f5f5;
+}
+
+.title p{
+    font-family: 'Roboto';
+    font-size: 24px;
+    letter-spacing: 0.04em;
+
+    color: #293845;
+}
+
+.menuSession {
+    margin-top: 110px;
+    width: 100%;
+    height: auto;
+
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    flex-direction: column;
+}
+
+.session {
+    width: 100%;
+    height: 110px;
+    padding-left: 20px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: stretch;
+
+    background-color: #FFFFFF;
+}
+
+.session > div{
+    display: flex;
+
+
+}
+
+.session p{
+    font-size: 20px;
+    letter-spacing: 0.02em;
+
+    color: #293845;
+}
+
+.button {
+    width: 83px;
+    height: 43px;
+    margin-right: 8px;
+    background-color: #E8833A;
+    border-radius: 3px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #FFFFFF;
+    
+}
+
+a{
+    text-decoration: none;
+}
