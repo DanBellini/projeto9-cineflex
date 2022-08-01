@@ -1,13 +1,12 @@
 import { useNavigate } from "react-router-dom"
 import "../Sucess/style.css"
 
-export default function Sucess ({loadOrder, newLoadOrder}){
+export default function Sucess ({loadOrder}){
 
     const navigate = useNavigate();
     const {movie, day, hour, buyer, seats} = loadOrder
 
     function backToHome(){
-        newLoadOrder();
         navigate('/');
     }
 
