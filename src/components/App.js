@@ -16,7 +16,7 @@ export default function App (){
                 <Route path="/" element={<Main/>}/>
                 <Route path="/sessoes/:idFilme" element={<Sessions/>}/>
                 <Route path="/assentos/:idSessao" element={<Seats finish={(loadOrder) => setLoadOrder(loadOrder)}/>}/>
-                <Route path="/sucess" element={<Sucess loadOrder={loadOrder}/>}/>
+                <Route path="/sucesso" element={<Sucess loadOrder={loadOrder}/>}/>
             </Routes>
         </BrowserRouter>
     )
