@@ -1,71 +1,90 @@
-# Getting Started with Create React App
+# Cineflex
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Introdução
 
-## Available Scripts
+O Cineflex é o nono projeto do meu portfólio de desenvolvimento Front-End, focado em React. O objetivo foi criar uma Single-Page Application (SPA) para um cinema, utilizando React Router para navegação dinâmica entre páginas sem recarregar o site. Este projeto fortaleceu meus conhecimentos em React, rotas, consumo de APIs REST e manipulação de estados.
 
-In the project directory, you can run:
+## Finalidade do Projeto
 
-### `npm start`
+O Cineflex permite que usuários:
+- Visualizem a lista de filmes em cartaz, obtida via requisição à API.
+- Vejam os horários disponíveis para cada filme, organizados por dia da semana.
+- Escolham sessões e reservem assentos em tempo real.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Tudo isso é feito consumindo dados de uma API pública, simulando um ambiente real de reservas de cinema.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## Funcionalidades
 
-### `npm test`
+- **Listagem de Filmes:** Consome a API para exibir pôsteres e títulos dos filmes disponíveis.
+- **Horários e Sessões:** Após escolher um filme, o usuário vê os horários por dia da semana.
+- **Reserva de Assentos:** Seleção de assentos disponíveis e reserva, enviando nome e CPF.
+- **SPA com React Router:** Navegação fluida entre páginas (filmes, sessões, assentos, confirmação).
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Consumo de API
 
-### `npm run build`
+Principais endpoints utilizados:
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- **Lista de filmes:**  
+  `GET https://mock-api.driven.com.br/api/v7/cineflex/movies`
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- **Sessões de um filme:**  
+  `GET https://mock-api.driven.com.br/api/v7/cineflex/movies/ID_DO_FILME/showtimes`
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- **Assentos de uma sessão:**  
+  `GET https://mock-api.driven.com.br/api/v7/cineflex/showtimes/ID_DA_SESSAO/seats`
 
-### `npm run eject`
+- **Reserva de assentos:**  
+  `POST https://mock-api.driven.com.br/api/v7/cineflex/seats/book-many`  
+  Corpo da requisição:
+  ```json
+  {
+    "ids": [1, 2, 3],
+    "name": "Fulano",
+    "cpf": "12345678900"
+  }
+  ```
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+## Instalação
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Para rodar o projeto localmente:
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+1. **Clone o repositório:**
+   ```bash
+   git clone https://github.com/DanBellini/projeto9-cineflex.git
+   ```
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+2. **Acesse o diretório do projeto:**
+   ```bash
+   cd projeto9-cineflex
+   ```
 
-## Learn More
+3. **Instale as dependências:**
+   ```bash
+   npm install
+   ```
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+4. **Inicie o servidor de desenvolvimento:**
+   ```bash
+   npm start
+   ```
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+5. **Acesse no navegador:**  
+   ```
+   http://localhost:3000
+   ```
 
-### Code Splitting
+## Tecnologias Utilizadas
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+- React
+- React Router
+- JavaScript (ES6+)
+- HTML
+- CSS
 
-### Analyzing the Bundle Size
+## Autor
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+- [DanBellini](https://github.com/DanBellini)
 
-### Making a Progressive Web App
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
-# projeto9-cineflex
+Contribuições são bem-vindas! Fique à vontade para abrir issues ou pull requests para melhorias e correções.
